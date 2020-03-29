@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Altacliente", urlPatterns = {"/Altacliente"})
 public class Altacliente extends HttpServlet {
+    public int contador = 1;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -80,15 +81,23 @@ public class Altacliente extends HttpServlet {
         String nombre = request.getParameter("Nombre");
         String apellido = request.getParameter("Apellido");
         String direccion = request.getParameter("Direccion");
-        String cp = request.getParameter("Codigopostal");
+        int cp = Integer.parseInt(request.getParameter("Codigopostal"));
         String ciudad  = request.getParameter("Ciudad");
         String estado = request.getParameter("Estado");
         String pais = request.getParameter("Pais");
         String correo = request.getParameter("Correo");
+        long telefono = Integer.parseInt(request.getParameter("Telefono"));
         String cumple = request.getParameter("Fechanacimiento");
         String contra = request.getParameter("Contra");
         
         ListaAltaCliente[] ListaAltaClientes = new ListaAltaCliente[50];
+        
+        ListaAltaClientes[0]= new ListaAltaCliente("Admin","admin",0,"admin","admin","admin", 0, "admin", "admin", "admin");
+        
+        ListaAltaClientes[contador] = new ListaAltaCliente(nombre, direccion, cp, ciudad, estado,
+                                                        pais, telefono, cumple, correo, contra);
+        
+        
         
         
         
