@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -72,14 +73,30 @@ public class Altacliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
+        HttpSession session = request.getSession();
+        
+        String nombre = request.getParameter("Nombre");
+        String apellido = request.getParameter("Apellido");
+        String direccion = request.getParameter("Direccion");
+        String cp = request.getParameter("Codigopostal");
+        String ciudad  = request.getParameter("Ciudad");
+        String estado = request.getParameter("Estado");
+        String pais = request.getParameter("Pais");
+        String correo = request.getParameter("Correo");
+        String cumple = request.getParameter("Fechanacimiento");
+        String contra = request.getParameter("Contra");
+        
+        ListaAltaCliente[] ListaAltaClientes = new ListaAltaCliente[50];
+        
+        
+        
+        System.out.println(nombre);
+        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";
