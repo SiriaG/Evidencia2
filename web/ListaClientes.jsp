@@ -16,12 +16,8 @@
         
             Lista de clientes.
             
-            <% 
-                out.println(noCliente);
-                out.println(Nombre);
-                out.println(Ciudad);
-                
-            %>
+     
             
+             
     </body>
 </html>
