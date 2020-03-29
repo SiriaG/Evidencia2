@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ListaClientes
-    Created on : 28/03/2020, 07:07:44 PM
+    Document   : Transferencia
+    Created on : 28/03/2020, 09:24:31 PM
     Author     : gmndi
 --%>
 
@@ -9,15 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de clientes</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Banco Mercantil de México</h1>
-        
-            Lista de clientes.
-            
-     
-            
-             
+        <h1>Hello World!</h1>
     </body>
 </html>
