@@ -11,6 +11,7 @@ package com.example.model;
  */
 public class ListaAltaCliente {
     
+    private int nocliente;
     private String nombre;
     private String direccion;
     private int cp;
@@ -22,9 +23,10 @@ public class ListaAltaCliente {
     private String correo;
     private String contrasena;
 
-    public ListaAltaCliente(String nombre, String direccion, int cp, 
+    public ListaAltaCliente(int nocliente, String nombre, String direccion, int cp, 
             String ciudad, String estado, String pais, long telefono, 
             String cumple, String correo, String contrasena) {
+        this.nocliente = nocliente;
         this.nombre = nombre;
         this.direccion = direccion;
         this.cp = cp;
@@ -36,7 +38,14 @@ public class ListaAltaCliente {
         this.correo = correo;
         this.contrasena = contrasena;
     }
-    
+
+    public int getNocliente() {
+        return nocliente;
+    }
+
+    public void setNocliente(int nocliente) {
+        this.nocliente = nocliente;
+    }
     
 
     public String getNombre() {

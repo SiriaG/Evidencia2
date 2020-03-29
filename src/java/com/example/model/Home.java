@@ -16,11 +16,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author siria
+ * @author andi9
  */
-@WebServlet(name = "Altacliente", urlPatterns = {"/Altacliente"})
-public class Altacliente extends HttpServlet {
-    public int contador = 1;
+@WebServlet(name = "Home", urlPatterns = {"/Home"})
+public class Home extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +38,10 @@ public class Altacliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Altacliente</title>");            
+            out.println("<title>Servlet Home</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Altacliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Home at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,46 +74,34 @@ public class Altacliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
         HttpSession session = request.getSession();
         
-        session.setAttribute("contador", contador);
+        String count="";
+        String user="";
+        String contra="";
         
-        String nombre = request.getParameter("Nombre");
-        String apellido = request.getParameter("Apellido");
-        String direccion = request.getParameter("Direccion");
-        int cp = Integer.parseInt(request.getParameter("Codigopostal"));
-        String ciudad  = request.getParameter("Ciudad");
-        String estado = request.getParameter("Estado");
-        String pais = request.getParameter("Pais");
-        String correo = request.getParameter("Correo");
-        long telefono = Integer.parseInt(request.getParameter("Telefono"));
-        String cumple = request.getParameter("Fechanacimiento");
-        String contra = request.getParameter("Contra");
+        String usuario = request.getParameter("usuario");
+        String contrasena = request.getParameter("contraseña");
         
-        ListaAltaCliente[] ListaAltaClientes = new ListaAltaCliente[50];
-        
-        ListaAltaClientes[0]= new ListaAltaCliente(0, "Admin","admin",0,"admin","admin","admin", 0, "admin", "admin", "admin");
-        
-        ListaAltaClientes[contador] = new ListaAltaCliente(contador, nombre, direccion, cp, ciudad, estado, pais, telefono, cumple, correo, contra);
-        
-        session.setAttribute("User", ListaAltaClientes[contador].toString());
-        
-        String[] ListaUsuarios = new String[50];
-        
-        ListaUsuarios[contador] = new String(session.getAttribute("User").toString());
-        
-        System.out.println(ListaUsuarios[contador]);
-        
-        System.out.println(contador);
-        
-        contador++;
-        
+        if(session.getAttribute("contador") == null){
+            
+        count = "0";
+        user ="admin";
+        contra="admin";
+        }
+        else{
+            count = session.getAttribute("contador").toString();
+            
+        }
         
         
     }
 
-    
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";
