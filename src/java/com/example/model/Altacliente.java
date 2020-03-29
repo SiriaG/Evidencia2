@@ -94,10 +94,7 @@ public class Altacliente extends HttpServlet {
         
         ListaAltaClientes[0]= new ListaAltaCliente("Admin","admin",0,"admin","admin","admin", 0, "admin", "admin", "admin");
         
-        ListaAltaClientes[contador] = new ListaAltaCliente(nombre, direccion, cp, ciudad, estado,
-                                                        pais, telefono, cumple, correo, contra);
-        
-        
+      
         
         
         
