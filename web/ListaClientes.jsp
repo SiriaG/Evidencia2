@@ -21,7 +21,8 @@
         
         <h2>Lista de clientes.</h2>
             
-            <% List<ListaClientes> clientes = (ArrayList<ListaClientes>)session.getAttribute("LISTACLIENTES"); 
+            <% ServletContext sc = getServletContext();
+                List<ListaClientes> clientes = (ArrayList<ListaClientes>)sc.getAttribute("LISTACLIENTES"); 
             for(ListaClientes cliente : clientes)
             {
                 out.println("No. Cliente: "+cliente.getNocliente());
