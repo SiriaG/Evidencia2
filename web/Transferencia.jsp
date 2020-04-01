@@ -12,6 +12,30 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hacer una transferencia </h1>
+        
+        
+        <form action="Exito.jsp" method="post">
+        
+        Numero de cuenta propia:
+        
+        <input type="number" class="input" name="noCuenta" required><br><br>
+     
+        
+        Numero de cuenta a depositar:
+           <input type="number" class="input" name="noCuenta2" required><br><br>
+        
+           
+               
+        Monto:
+           <input type="number" class="input" name="monto" required><br><br>
+        
+           
+        Depositar:
+        <input type="submit" value="Entrar"><br>
+        
+        
+        
+        
     </body>
 </html>
