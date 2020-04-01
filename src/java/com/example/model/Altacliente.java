@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Altacliente", urlPatterns = {"/Altacliente"})
 public class Altacliente extends HttpServlet {
     public int contador = 1;
+    public ArrayList<ListaClientes> Clientes = new ArrayList<>();     
+       
+    public ListaClientes[] ListaDeClientes = new ListaClientes[50];
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,6 +86,7 @@ public class Altacliente extends HttpServlet {
         
         
         HttpSession session = request.getSession();
+        ServletContext sc = getServletContext();
         
         
         
@@ -123,21 +128,22 @@ public class Altacliente extends HttpServlet {
         
         
         
-        ArrayList<ListaClientes> Clientes = new ArrayList<>();      
         
-       
-        ListaClientes[] ListaDeClientes = new ListaClientes[9];
         ListaDeClientes[contador] = new ListaClientes(contador, nombre, direccion, cp, ciudad, estado,
                                                     pais, telefono, cumple, correo, contra);
         
         Clientes.add(ListaDeClientes[contador]);
         
-        session.setAttribute("LISTACLIENTES", Clientes);
+        getServletContext().setAttribute("LISTACLIENTES", Clientes);
+        
+       
         
         contador++;
+        
+        session.setAttribute("contador", contador);
 
         
-        RequestDispatcher view = request.getRequestDispatcher("index.html");
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);
         
     }

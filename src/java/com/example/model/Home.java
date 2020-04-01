@@ -7,7 +7,9 @@ package com.example.model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,6 +80,7 @@ public class Home extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
+        ServletContext sc = getServletContext();
         
         String count="";
         String user="";
@@ -103,28 +106,56 @@ public class Home extends HttpServlet {
         System.out.println(user);
         System.out.println(contra);
         System.out.println(conta);
+//        
+//        
+//        
+//        ArregloUsuarios[0] = "admin";
+//        ArregloContras[0] = "admin";
+//        
+//        
+//        
+//        ArregloUsuarios[conta] = user;
+//        ArregloContras[conta] = contra;
+//        
+//        
+//        for(int i=0; i<= conta; i++){
+//            System.out.println("Contador: "+conta);
+//            System.out.println("No. cliente: "+ArregloUsuarios[i]);
+//            System.out.println("Contraseña: "+ArregloContras[i]);
+//            System.out.println("");
+//        }
+        
+        PrintWriter out = response.getWriter();
         
         
-        
-        ArregloUsuarios[0] = "admin";
-        ArregloContras[0] = "admin";
-        
-        
-        
-        ArregloUsuarios[conta] = user;
-        ArregloContras[conta] = contra;
-        
-        
-        for(int i=0; i<= conta; i++){
-            System.out.println("Contador: "+conta);
-            System.out.println("No. cliente: "+ArregloUsuarios[i]);
-            System.out.println("Contraseña: "+ArregloContras[i]);
-            System.out.println("");
+        ArrayList<ListaClientes> clientes = (ArrayList<ListaClientes>) sc.getAttribute("LISTACLIENTES");
+
+        boolean seEncontroCliente = false;
+        try {
+            for (ListaClientes cliente : clientes) {
+                if (conta == cliente.getNocliente() && contra.equals(cliente.getContrasena())) {
+                    session.setAttribute("usuario", cliente);
+                    request.getRequestDispatcher("Home.jsp").forward(request, response);
+                    seEncontroCliente = true;
+                    break;
+                }
+            }
+            if (!seEncontroCliente) {
+                out.println("<center>");
+                out.print("<p>Error en los campos, verifique su informacion</p>");
+                out.println("</center>");
+                request.getRequestDispatcher("index.html").include(request, response);
+            }
+            out.close();
+        } catch (NullPointerException e) {
+            log("Error en inicio de sesion", e);
+            request.getRequestDispatcher("index.html").forward(request, response);
+
         }
         
         
-        RequestDispatcher view = request.getRequestDispatcher("index.html");
-        view.forward(request, response);
+//        RequestDispatcher view = request.getRequestDispatcher("index.html");
+//        view.forward(request, response);
         
     }
 
