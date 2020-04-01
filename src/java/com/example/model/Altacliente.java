@@ -78,7 +78,7 @@ public class Altacliente extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        session.setAttribute("contador", contador);
+        
         
         String nombre = request.getParameter("Nombre");
         String apellido = request.getParameter("Apellido");
@@ -105,6 +105,10 @@ public class Altacliente extends HttpServlet {
         ListaUsuarios[contador] = new String(session.getAttribute("User").toString());
         
         System.out.println(ListaUsuarios[contador]);
+        
+        session.setAttribute("contador", contador);
+        session.setAttribute("USUARIOINICIO", contador);
+        session.setAttribute("CONTRAINICIO", contra);
         
         System.out.println(contador);
         

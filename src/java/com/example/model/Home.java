@@ -7,6 +7,7 @@ package com.example.model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -91,9 +92,31 @@ public class Home extends HttpServlet {
         }
         else{
             count = session.getAttribute("contador").toString();
+            user = session.getAttribute("USUARIOINICIO").toString();
+            contra = session.getAttribute("CONTRAINICIO").toString();
+        }
+        int conta = Integer.parseInt(count);
+        
+        String[] ArregloUsuarios = new String[50];
+        String[] ArregloContras = new String[50];
+        
+        ArregloUsuarios[0]="admin";
+        ArregloContras[0]="admin";
+        
+        ArregloUsuarios[conta] = user;
+        ArregloContras[conta] = contra;
+        
+        for (int i = 0; i<= conta; i++){
+            if(usuario.equals(ArregloUsuarios[conta])&&contra.equals(ArregloContras[conta])){
+                RequestDispatcher view = request.getRequestDispatcher("Home.html");
+                view.forward(request, response);
+            }
+            else{
+                RequestDispatcher view = request.getRequestDispatcher("index.html");
+                view.forward(request, response);
+            }
             
         }
-        
         
     }
 
