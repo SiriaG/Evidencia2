@@ -10,5 +10,44 @@
         </session-timeout>
     </session-config>
     
+    <servlet>
+        <servlet-name>Altacliente</servlet-name>
+        <servlet-class>com.example.model.Altacliente</servlet-class>        
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Altacliente</servlet-name>
+        <url-pattern>/Altacliente</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Altacuenta</servlet-name>
+        <servlet-class>com.example.model.Altacuenta</servlet-class>              
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Altacuenta</servlet-name>
+        <url-pattern>/Altacuenta</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>com.example.model.Home</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Transacciones</servlet-name>
+        <servlet-class>com.example.model.Transacciones</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Transacciones</servlet-name>
+        <url-pattern>/Transacciones</url-pattern>
+    </servlet-mapping>
+    
+    
+   
+    
     
 </web-app>
