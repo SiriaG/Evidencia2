@@ -21,6 +21,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Home", urlPatterns = {"/Home"})
 public class Home extends HttpServlet {
+    public String[] ArregloUsuarios = new String[50];
+    public String[] ArregloContras = new String[50];
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -97,22 +99,30 @@ public class Home extends HttpServlet {
         }
         int conta = Integer.parseInt(count);
         
-        String[] ArregloUsuarios = new String[50];
-        String[] ArregloContras = new String[50];
         
-        ArregloUsuarios[0]="admin";
-        ArregloContras[0]="admin";
+        System.out.println(user);
+        System.out.println(contra);
+        System.out.println(conta);
+        
+        
+        
+        ArregloUsuarios[0] = "admin";
+        ArregloContras[0] = "admin";
+        
+        
         
         ArregloUsuarios[conta] = user;
         ArregloContras[conta] = contra;
         
-        for (int i = 0; i<= conta; i++){
-            if(usuario.equals(ArregloUsuarios[i])&&contrasena.equals(ArregloContras[i])){
-                RequestDispatcher view = request.getRequestDispatcher("Home.html");
-                view.forward(request, response);
-            }          
-            
+        
+        for(int i=0; i<= conta; i++){
+            System.out.println("Contador: "+conta);
+            System.out.println("No. cliente: "+ArregloUsuarios[i]);
+            System.out.println("Contraseña: "+ArregloContras[i]);
+            System.out.println("");
         }
+        
+        
         RequestDispatcher view = request.getRequestDispatcher("index.html");
         view.forward(request, response);
         

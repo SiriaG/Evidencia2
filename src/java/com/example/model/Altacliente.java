@@ -7,6 +7,11 @@ package com.example.model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -88,7 +93,7 @@ public class Altacliente extends HttpServlet {
         String estado = request.getParameter("Estado");
         String pais = request.getParameter("Pais");
         String correo = request.getParameter("Correo");
-        long telefono = Integer.parseInt(request.getParameter("Telefono"));
+        long telefono = Long.parseLong(request.getParameter("Telefono"));
         String cumple = request.getParameter("Fechanacimiento");
         String contra = request.getParameter("Contra");
         
@@ -104,7 +109,11 @@ public class Altacliente extends HttpServlet {
         
         ListaUsuarios[contador] = new String(session.getAttribute("User").toString());
         
+        for(int i = 0; i<=contador; i++){
+        
         System.out.println(ListaUsuarios[contador]);
+        
+        }
         
         session.setAttribute("contador", contador);
         session.setAttribute("USUARIOINICIO", contador);
@@ -112,9 +121,24 @@ public class Altacliente extends HttpServlet {
         
         System.out.println(contador);
         
+        
+        
+        ArrayList<ListaClientes> Clientes = new ArrayList<>();      
+        
+       
+        ListaClientes[] ListaDeClientes = new ListaClientes[9];
+        ListaDeClientes[contador] = new ListaClientes(contador, nombre, direccion, cp, ciudad, estado,
+                                                    pais, telefono, cumple, correo, contra);
+        
+        Clientes.add(ListaDeClientes[contador]);
+        
+        session.setAttribute("LISTACLIENTES", Clientes);
+        
         contador++;
+
         
-        
+        RequestDispatcher view = request.getRequestDispatcher("index.html");
+        view.forward(request, response);
         
     }
 
