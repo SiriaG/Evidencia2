@@ -20,8 +20,11 @@
                     Número de cuenta:
                     <input type="number" name="nocuenta" required><br><br>
                     Tipo de cuenta:
-                    <input type="text" name="tipocuenta" required><br><br>
-                    Monto:
+                    <select>
+                        <option name="monto" value="DEBITO">Debito</option>
+                        <option name="monto" value="RETIRO">Retiro</option>
+                    </select><br><br>
+                    Monto:                    
                     <input type="number" name="monto" required><br><br>
                     Fecha:
                     <input type="number" name="fecha" required><br><br>

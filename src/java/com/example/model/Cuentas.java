@@ -15,6 +15,15 @@ public class Cuentas {
     public String Tipo;
     public double monto;
 
+    public Cuentas(int NoCuenta, int NoCliente, String Tipo, double monto) {
+        this.NoCuenta = NoCuenta;
+        this.NoCliente = NoCliente;
+        this.Tipo = Tipo;
+        this.monto = monto;
+    }
+    
+    
+
     public int getNoCuenta() {
         return NoCuenta;
     }

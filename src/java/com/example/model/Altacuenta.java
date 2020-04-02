@@ -7,6 +7,10 @@ package com.example.model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +23,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "Altacuenta", urlPatterns = {"/Altacuenta"})
 public class Altacuenta extends HttpServlet {
+    public ArrayList<Cuentas> Cuentas = new ArrayList<>();
+    public Cuentas[] ListaDeCuentas = new Cuentas[50];
+    public int contador = 1;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -73,6 +80,23 @@ public class Altacuenta extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        ServletContext sc = getServletContext();
+        
+        int NumCliente = Integer.parseInt(request.getParameter("nocliente"));
+        int NumCuenta = Integer.parseInt(request.getParameter("nocuenta"));
+        String TipoCuenta = request.getParameter("tipocuenta");
+        double monto = Double.parseDouble(request.getParameter("monto"));
+        String fecha = request.getParameter("fecha");
+        
+        ListaDeCuentas[contador] = new Cuentas(NumCuenta, NumCliente, TipoCuenta, monto);
+        
+        Cuentas.add(ListaDeCuentas[contador]);
+        
+        contador++;
+        
+        sc.setAttribute("LISTACUENTAS", Cuentas);
+        
     }
 
     /**
