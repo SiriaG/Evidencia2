@@ -28,7 +28,7 @@
           
               Cliente<br>
               <li><a href="Transferencia.jsp">Hacer una transferencia</a></li><br>
-              <li><a href="ListaTransferencias">Lista de transferencias</a></li><br>
+              <li><a href="Listatransferencias.html">Lista de transferencias</a></li><br>
             </ul>
         </div>
     </body>
