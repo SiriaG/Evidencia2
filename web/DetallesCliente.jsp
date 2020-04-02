@@ -4,6 +4,9 @@
     Author     : siria
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.example.model.Cuentas"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -15,7 +18,35 @@
     </head>
     <body>
         <h1>Detalles del Cliente</h1>
+        
+        <a href="index.html">Regresar</a> 
+        
+        <h2>Lista de clientes.</h2>
             
-        </form>
+            <% ServletContext sc = getServletContext();
+            
+            if(sc.getAttribute("LISTACUENTAS")!=null){
+                List<Cuentas> cuentas = (ArrayList<Cuentas>)sc.getAttribute("LISTACLIENTES"); 
+                for(Cuentas cuenta : cuentas)
+                {
+                    out.println("No. Cliente: "+cuenta.getNoCliente());
+                    out.println("</br>");
+                    out.println("No. Cuenta: "+cuenta.getNoCuenta());
+                    out.println("</br>");
+                    out.println("Tipo de cuenta: "+cuenta.getTipo());
+                    out.println("</br>");
+                    out.println("Monto: "+cuenta.getMonto());
+                    out.println("</br>");
+                    
+
+                }
+            }
+            else{
+                out.println("Aun no hay cuentas");
+            }
+            
+            %>
+            
+        
     </body>
 </html>

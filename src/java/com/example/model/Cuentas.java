@@ -52,6 +52,10 @@ public class Cuentas {
         this.monto = this.monto+valor;
     }
     
+    public double getMonto(){
+        return monto;
+    }
+    
     public enum Tipo{
         debito("Debito"), retiro("Retiro");
         String valor;
