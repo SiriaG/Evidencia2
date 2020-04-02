@@ -17,7 +17,7 @@
     <body>
         <h1>Banco Mercantil de México</h1>
         
-        <a href="index.html">Regresar</a> 
+        <a href="Home.jsp">Regresar</a> 
         
         <h2>Lista de clientes.</h2>
             
