@@ -33,7 +33,7 @@
                 <a href="#">Desbloquear clave de acceso</a>
 
                 <a href="AltaCliente.jsp">Cliente</a>
-                <a href="altacuenta.html">Cuenta</a>
+                <a href="AltaCuenta.jsp">Cuenta</a>
 
                 
             </form>
