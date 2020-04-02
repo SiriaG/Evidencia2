@@ -17,9 +17,9 @@
         <title>Cliente</title>
     </head>
     <body>
-        <h1>Detalles del Cliente</h1>
+        <h1>Detalles de la cuenta</h1>
         
-        <a href="index.html">Regresar</a> 
+        <a href="Home.jsp">Regresar</a> 
         
         <h2>Lista de clientes.</h2>
             
