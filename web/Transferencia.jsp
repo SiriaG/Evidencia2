@@ -17,7 +17,7 @@
         <h1>Hacer una transferencia </h1>
         <text> Ingrese una cuenta de retiro y una de deposito, indique los datos de la transferencia y de clic en "Continuar"</text><br><br>
                 
-        <form action="Transacciones.java" method="post">       
+        <form action="Completado.jsp" method="post">       
             
         Cuenta retiro:        
         <input type="number" class="input" name="noCuenta" required><br><br>
