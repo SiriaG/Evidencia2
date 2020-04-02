@@ -19,14 +19,14 @@
             <img class="avatar" src="img/bancoo.png" alt="logobanco">
             <h1>Iniciar sesion</h1>
 
-            <form action="Home.jsp" method="post">
+            <form action="Home" method="post">
 
             
 
                 Número de cliente:
                 <input type="text" name="usuario" required> <br> <br>
                 Clave de acceso:
-                <input type="password" name="contraseña" required><br><br>      
+                <input type="password" name="contrasena" required><br><br>      
                 
                 <input type="submit" value="Entrar"><br>
                 
