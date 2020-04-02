@@ -87,13 +87,14 @@ public class Home extends HttpServlet {
         String contra="";
         
         String usuario = request.getParameter("usuario");
-        String contrasena = request.getParameter("contraseña");
+        String contrasena = request.getParameter("contrasena");
         
         if(session.getAttribute("contador") == null){
             
         count = "0";
         user ="admin";
         contra="admin";
+     
         }
         else{
             count = session.getAttribute("contador").toString();
@@ -125,6 +126,9 @@ public class Home extends HttpServlet {
 //            System.out.println("");
 //        }
         
+        if (user.equals(usuario) && contra.equals(contrasena)){
+        request.getRequestDispatcher("Home.jsp").forward(request, response);
+        }
         PrintWriter out = response.getWriter();
         
         
@@ -132,6 +136,7 @@ public class Home extends HttpServlet {
 
         boolean seEncontroCliente = false;
         try {
+            
             for (ListaClientes cliente : clientes) {
                 if (conta == cliente.getNocliente() && contra.equals(cliente.getContrasena())) {
                     session.setAttribute("usuario", cliente);
@@ -144,12 +149,12 @@ public class Home extends HttpServlet {
                 out.println("<center>");
                 out.print("<p>Error en los campos, verifique su informacion</p>");
                 out.println("</center>");
-                request.getRequestDispatcher("index.html").include(request, response);
+                request.getRequestDispatcher("FailRegistro.jsp").include(request, response);
             }
             out.close();
         } catch (NullPointerException e) {
             log("Error en inicio de sesion", e);
-            request.getRequestDispatcher("index.html").forward(request, response);
+            request.getRequestDispatcher("FailRegistro.jsp").forward(request, response);
 
         }
         
