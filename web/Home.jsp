@@ -18,11 +18,11 @@
                <text>Seleccione la opcion deseada</text>
                
           <ul>
-              <li><a href="altacliente.html">Alta Cliente</a></li><br>
+              <li><a href="AltaCliente.jsp">Alta Cliente</a></li><br>
               <li><a href="altacuenta.html">Alta Cuenta</a></li><br>
-              <li><a href="Listaclientes.html">Lista de Clientes</a></li><br>
+              <li><a href="ListaClientes.jsp">Lista de Clientes</a></li><br>
               <li><a href="Detallescuenta.html">Detalles de cuenta</a></li><br>
-              <li><a href="DetallesCliente.html">Detalles de cliente</a></li><br>
+              <li><a href="DetallesCliente.jsp">Detalles de cliente</a></li><br>
           
        
               <li><a href="DetallesCliente">Detalles de cuenta cliente</a></li><br>
