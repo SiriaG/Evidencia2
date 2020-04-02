@@ -19,7 +19,7 @@
             <img class="avatar" src="img/bancoo.png" alt="logobanco">
             <h1>Iniciar sesion</h1>
 
-            <form action="Home" method="post">
+            <form action="Home.jsp" method="post">
 
             
 
