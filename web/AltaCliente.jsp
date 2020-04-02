@@ -27,7 +27,7 @@
         
         <div class="wrapper">
             <h1>Registro</h1>
-                <form action="AltaCliente.java" method="post">                         
+                <form action="Altacliente" method="post">                         
                     Nombre:
                     <input type="text" name="Nombre" required><br>
                     Apellidos:
